@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>XunitShouldXml</id>
+    <version>0.0.0-sv</version>
+    <title>XUnit Should Assertion Extensions for Xml</title>
+    <authors>Eddie Garmon</authors>
+    <owners>Eddie Garmon</owners>
+    <projectUrl>https://github.com/EddieGarmon/XunitShould</projectUrl>
+    <licenseUrl>https://github.com/EddieGarmon/XunitShould/blob/master/LICENSE.txt</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Should assertion extensions for the XUnit v1 framework</description>
+    <copyright>Copyright © Eddie Garmon 2011-2013</copyright>
+    <tags>should xunit xml</tags>
+    <dependencies>
+      <dependency id="xunit" version="[1.9.2,2)" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\XunitShouldXml.dll" target="lib\net35" />
+    <file src="bin\Release\XunitShouldXml.pdb" target="lib\net35" />
+  </files>
+</package>
