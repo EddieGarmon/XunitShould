@@ -149,9 +149,11 @@ Task PackageSources {
 				}
 				$content = [System.IO.File]::ReadAllText($SourceAt + $from)
 				$content = $content.Replace("public class", "internal class")
-				$content = $content.Replace("public partial class", "internal partial class")
 				$content = $content.Replace("public static class", "internal static class")
+				$content = $content.Replace("public abstract class", "internal abstract class")
+				$content = $content.Replace("public partial class", "internal partial class")
 				$content = $content.Replace("public static partial class", "internal static partial class")
+				$content = $content.Replace("public abstract partial class", "internal abstract partial class")
 				$content = $content.Replace("public interface", "internal interface")
 				$content = $content.Replace("public partial interface", "internal partial interface")
 				$content = $content.Replace("public struct", "internal struct")

@@ -8,6 +8,7 @@
     <owners>Eddie Garmon</owners>
     <projectUrl>https://github.com/EddieGarmon/XunitShould</projectUrl>
     <licenseUrl>https://github.com/EddieGarmon/XunitShould/blob/master/LICENSE.txt</licenseUrl>
+    <iconUrl>http://eddiegarmon.github.io/MyLogo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Should assertion extensions for the XUnit v2 framework</description>
     <copyright>Copyright © Eddie Garmon 2011-2013</copyright>
