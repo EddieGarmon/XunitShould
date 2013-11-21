@@ -14,7 +14,7 @@
     <copyright>Copyright © Eddie Garmon 2011-2013</copyright>
     <tags>should xunit xunit2</tags>
     <dependencies>
-      <dependency id="xunit" version="[2.0,3)" />
+      <dependency id="xunit" version="[2.0-a,3)" />
     </dependencies>
   </metadata>
   <files>

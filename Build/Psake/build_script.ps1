@@ -118,7 +118,9 @@ Task PackageSources {
 			$packageId = $metadata.Element("id").Value
 			$version = $metadata.Element("version").Value
 			$metadata.Element("id").Value = $packageId + ".Sources"
-			$depends = $metadata.Element("dependencies");
+			$metadata.Element("title").Value += " (Source)"
+			
+			$depends = $metadata.Element("dependencies")
 			if ($depends) {
 				foreach ($dependency in $depends.Elements("dependency")) {
 					$dependencyId = $dependency.Attribute("id")
