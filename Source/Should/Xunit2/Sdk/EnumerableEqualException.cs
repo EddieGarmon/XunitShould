@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Runtime.Serialization;
-
-using Xunit.Sdk;
+using System.Globalization;
 
 namespace XunitShould.Sdk
 {
-    [Serializable]
     public class EnumerableEqualException : XunitException
     {
         private readonly string _actual;
@@ -20,16 +17,6 @@ namespace XunitShould.Sdk
             _atIndex = atIndex;
             _expectedCount = expectedCount;
             _actualCount = actualCount;
-        }
-
-        /// <inheritdoc/>
-        protected EnumerableEqualException(SerializationInfo info, StreamingContext context)
-            : base(info, context) {
-            _expectedCount = info.GetInt32("ExpectedCount");
-            _actualCount = info.GetInt32("ActualCount");
-            _atIndex = info.GetInt32("AtIndex");
-            _expected = info.GetString("Expected");
-            _actual = info.GetString("Actual");
         }
 
         public string Actual {
@@ -54,31 +41,15 @@ namespace XunitShould.Sdk
 
         public override string Message {
             get {
-                return
-                    string.Format(
-                        "Enumerables not equal at index: {0}{5}(Expected has {1} items, Actual has {2} items){5}Expected:  {3}{5}Actual: {4}",
-                        _atIndex,
-                        _expectedCount,
-                        _actualCount,
-                        _expected,
-                        _actual,
-                        Environment.NewLine);
+                return string.Format(CultureInfo.CurrentCulture,
+                                     "Enumerables not equal at index: {0}{5}(Expected has {1} items, Actual has {2} items){5}Expected:  {3}{5}Actual: {4}",
+                                     _atIndex,
+                                     _expectedCount,
+                                     _actualCount,
+                                     _expected,
+                                     _actual,
+                                     Environment.NewLine);
             }
-        }
-
-        /// <inheritdoc/>
-        public override void GetObjectData(SerializationInfo info, StreamingContext context) {
-            if (info == null) {
-                throw new ArgumentNullException("info");
-            }
-
-            info.AddValue("ExpectedCount", _expectedCount);
-            info.AddValue("ActualCount", _actualCount);
-            info.AddValue("AtIndex", _atIndex);
-            info.AddValue("Expected", _expected);
-            info.AddValue("Actual", _actual);
-
-            base.GetObjectData(info, context);
         }
     }
 }

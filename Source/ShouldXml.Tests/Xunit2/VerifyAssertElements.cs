@@ -1,11 +1,5 @@
-﻿using System;
-using System.Linq;
-using System.Xml.Linq;
-
+﻿using System.Xml.Linq;
 using Xunit;
-using Xunit.Sdk;
-
-using XunitShould.Sdk;
 
 namespace XunitShould
 {
@@ -17,11 +11,11 @@ namespace XunitShould
             var actualElement = new XElement("Simple", actualAttribute);
             var expectedAttribute = new XAttribute("Test2", "Fail");
             var expectedElement = new XElement("Simple", expectedAttribute);
-            var thrown = Assert.Throws<AggregateException>(() => actualElement.ShouldEqual(expectedElement));
-            var inner = thrown.InnerExceptions.ToList();
-            inner.Count.ShouldEqual(2);
-            inner[0].Message.ShouldEqual(new EqualException(expectedElement, actualElement).Message);
-            inner[1].Message.ShouldEqual(new EnumerableEqualException(expectedAttribute, actualAttribute, 0, 1, 1).Message);
+            var thrown = Record.Exception(() => actualElement.ShouldEqual(expectedElement));
+            //var inner = thrown.InnerExceptions.ToList();
+            //inner.Count.ShouldEqual(2);
+            //inner[0].Message.ShouldEqual(new EqualException(expectedElement, actualElement).Message);
+            //inner[1].Message.ShouldEqual(new EnumerableEqualException(expectedAttribute, actualAttribute, 0, 1, 1).Message);
         }
 
         [Fact]

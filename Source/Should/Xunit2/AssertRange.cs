@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using XunitShould.Sdk;
 
 namespace XunitShould
@@ -42,8 +41,8 @@ namespace XunitShould
         public static void ShouldBeInRange<T>(this T actual, T low, bool lowInclusive, T high, bool highInclusive) where T : IComparable<T> {
             int compareLow = actual.CompareTo(low);
             int compareHigh = actual.CompareTo(high);
-            if ((lowInclusive && compareLow < 0) || (!lowInclusive && compareLow <= 0) || (highInclusive && compareHigh > 0) ||
-                (!highInclusive && compareHigh >= 0)) {
+            if ((lowInclusive && compareLow < 0) || (!lowInclusive && compareLow <= 0) || (highInclusive && compareHigh > 0)
+                || (!highInclusive && compareHigh >= 0)) {
                 throw new InRangeException(actual, low, lowInclusive, high, highInclusive);
             }
         }
@@ -51,8 +50,8 @@ namespace XunitShould
         public static void ShouldBeInRange<T>(this T actual, T low, bool lowInclusive, T high, bool highInclusive, IComparer<T> comparer) {
             int compareLow = comparer.Compare(actual, low);
             int compareHigh = comparer.Compare(actual, high);
-            if ((lowInclusive && compareLow < 0) || (!lowInclusive && compareLow <= 0) || (highInclusive && compareHigh > 0) ||
-                (!highInclusive && compareHigh >= 0)) {
+            if ((lowInclusive && compareLow < 0) || (!lowInclusive && compareLow <= 0) || (highInclusive && compareHigh > 0)
+                || (!highInclusive && compareHigh >= 0)) {
                 throw new InRangeException(actual, low, lowInclusive, high, highInclusive);
             }
         }
@@ -89,12 +88,11 @@ namespace XunitShould
             ShouldNotBeInRange(actual, low, true, high, true, comparer);
         }
 
-        public static void ShouldNotBeInRange<T>(this T actual, T low, bool lowInclusive, T high, bool highInclusive)
-            where T : IComparable<T> {
+        public static void ShouldNotBeInRange<T>(this T actual, T low, bool lowInclusive, T high, bool highInclusive) where T : IComparable<T> {
             int compareLow = actual.CompareTo(low);
             int compareHigh = actual.CompareTo(high);
-            if (((lowInclusive && compareLow >= 0) || (!lowInclusive && compareLow > 0)) &&
-                ((highInclusive && compareHigh <= 0) || (!highInclusive && compareHigh < 0))) {
+            if (((lowInclusive && compareLow >= 0) || (!lowInclusive && compareLow > 0))
+                && ((highInclusive && compareHigh <= 0) || (!highInclusive && compareHigh < 0))) {
                 throw new NotInRangeException(actual, low, lowInclusive, high, highInclusive);
             }
         }
@@ -102,8 +100,8 @@ namespace XunitShould
         public static void ShouldNotBeInRange<T>(this T actual, T low, bool lowInclusive, T high, bool highInclusive, IComparer<T> comparer) {
             int compareLow = comparer.Compare(actual, low);
             int compareHigh = comparer.Compare(actual, high);
-            if (((lowInclusive && compareLow >= 0) || (!lowInclusive && compareLow > 0)) &&
-                ((highInclusive && compareHigh <= 0) || (!highInclusive && compareHigh < 0))) {
+            if (((lowInclusive && compareLow >= 0) || (!lowInclusive && compareLow > 0))
+                && ((highInclusive && compareHigh <= 0) || (!highInclusive && compareHigh < 0))) {
                 throw new NotInRangeException(actual, low, lowInclusive, high, highInclusive);
             }
         }

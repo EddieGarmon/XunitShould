@@ -4,8 +4,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Runtime.Serialization;
-
-using Xunit.Sdk;
+using XunitShould.Sdk;
 
 namespace XunitShould
 {
@@ -51,11 +50,7 @@ namespace XunitShould
             get {
                 return _innerExceptions.Aggregate("One or more exceptions occured:",
                                                   (current, ex) =>
-                                                  String.Format(CultureInfo.InvariantCulture,
-                                                                "{0}{1}---- {2}{1}",
-                                                                current,
-                                                                Environment.NewLine,
-                                                                ex));
+                                                  String.Format(CultureInfo.InvariantCulture, "{0}{1}---- {2}{1}", current, Environment.NewLine, ex));
             }
         }
 

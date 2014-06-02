@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("XunitShould")]
-[assembly: AssemblyCopyright("Copyright © Eddie Garmon 2011-2013")]
+[assembly: AssemblyCopyright("Copyright © Eddie Garmon 2011-2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]

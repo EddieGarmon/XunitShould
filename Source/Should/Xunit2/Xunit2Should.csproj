@@ -1,16 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\packages\xunit.core.2.0.0-beta-build2650\build\portable-net45+win+wpa81+wp80\xunit.core.props" Condition="Exists('..\..\packages\xunit.core.2.0.0-beta-build2650\build\portable-net45+win+wpa81+wp80\xunit.core.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B80AC1A5-1A05-4157-9389-40C4522AAE68}</ProjectGuid>
+    <ProjectGuid>{C31DA34F-D540-409F-A65A-91FB43B4DC99}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>XunitShould</RootNamespace>
     <AssemblyName>Xunit2Should</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>Profile259</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <NuGetPackageImportStamp>d192cb94</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,42 +36,81 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="xunit.abstractions">
-      <HintPath>..\..\packages\xunit.abstractions.2.0.0-alpha-build2533\lib\net35\xunit.abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="xunit2">
-      <HintPath>..\..\packages\xunit.2.0.0-alpha-build2533\lib\net45\xunit2.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="AssertContainment.cs" />
-    <Compile Include="AssertEmpty.cs" />
     <Compile Include="AssertEquality.cs" />
     <Compile Include="AssertFalse.cs" />
-    <Compile Include="AssertRange.cs" />
+    <Compile Include="AssertPropertyChange.cs" />
     <Compile Include="AssertReference.cs" />
-    <Compile Include="AssertThrows.cs" />
+    <Compile Include="AssertSet.cs" />
+    <Compile Include="AssertString.cs" />
     <Compile Include="AssertTrue.cs" />
     <Compile Include="AssertType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Record.cs" />
+    <Compile Include="Sdk\AssertActualExpectedException.cs" />
+    <Compile Include="Sdk\AssertCollectionCountException.cs" />
+    <Compile Include="Sdk\AssertComparer.cs" />
+    <Compile Include="Sdk\AssertEqualityComparer.cs" />
+    <Compile Include="Sdk\AssertEqualityComparerAdapter.cs" />
+    <Compile Include="Sdk\CollectionException.cs" />
+    <Compile Include="Sdk\Comparers.cs" />
+    <Compile Include="Sdk\ContainsException.cs" />
+    <Compile Include="Sdk\DoesNotContainException.cs" />
+    <Compile Include="Sdk\DoesNotEndWithException.cs" />
+    <Compile Include="Sdk\DoesNotMatchException.cs" />
+    <Compile Include="Sdk\DoesNotStartWithException.cs" />
+    <Compile Include="Sdk\DoesNotThrowException.cs" />
+    <Compile Include="Sdk\EmptyException.cs" />
+    <Compile Include="Sdk\EndsWithException.cs" />
     <Compile Include="Sdk\EnumerableEqualException.cs" />
-    <Compile Include="Sdk\ExceptionComparer.cs" />
+    <Compile Include="Sdk\EqualException.cs" />
+    <Compile Include="AssertException.cs" />
+    <Compile Include="Sdk\FalseException.cs" />
     <Compile Include="Sdk\InRangeException.cs" />
+    <Compile Include="Sdk\IsAssignableToException.cs" />
+    <Compile Include="Sdk\IsNotTypeException.cs" />
+    <Compile Include="Sdk\IsTypeException.cs" />
+    <Compile Include="Sdk\MatchesException.cs" />
+    <Compile Include="Sdk\NoneException.cs" />
+    <Compile Include="Sdk\NotEmptyException.cs" />
+    <Compile Include="Sdk\NotEqualException.cs" />
     <Compile Include="Sdk\NotInRangeException.cs" />
-    <Compile Include="Sdk\RangeException.cs" />
-    <Compile Include="StringComparisonExtensions.cs" />
+    <Compile Include="Sdk\NotNullException.cs" />
+    <Compile Include="Sdk\NotSameException.cs" />
+    <Compile Include="Sdk\NullException.cs" />
+    <Compile Include="Sdk\ParameterCountMismatchException.cs" />
+    <Compile Include="Sdk\ProperSubsetException.cs" />
+    <Compile Include="Sdk\ProperSupersetException.cs" />
+    <Compile Include="Sdk\PropertyChangedException.cs" />
+    <Compile Include="Sdk\SameException.cs" />
+    <Compile Include="Sdk\SingleException.cs" />
+    <Compile Include="Sdk\StartsWithException.cs" />
+    <Compile Include="Sdk\SubsetException.cs" />
+    <Compile Include="Sdk\SupersetException.cs" />
+    <Compile Include="Sdk\ThrowsException.cs" />
+    <Compile Include="Sdk\TimeoutException.cs" />
+    <Compile Include="Sdk\TrueException.cs" />
+    <Compile Include="Sdk\XunitException.cs" />
+    <Compile Include="AssertEnumerable.cs" />
+    <Compile Include="AssertRange.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="xunit.abstractions">
+      <HintPath>..\..\packages\xunit.abstractions.2.0.0-beta-build2650\lib\portable-net45+win+wpa81+wp80\xunit.abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.core">
+      <HintPath>..\..\packages\xunit.core.2.0.0-beta-build2650\lib\portable-net45+win+wpa81+wp80\xunit.core.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\xunit.core.2.0.0-beta-build2650\build\portable-net45+win+wpa81+wp80\xunit.core.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\xunit.core.2.0.0-beta-build2650\build\portable-net45+win+wpa81+wp80\xunit.core.props'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

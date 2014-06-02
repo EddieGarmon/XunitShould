@@ -1,6 +1,7 @@
 ﻿using System.Runtime.Serialization;
+using Xunit.Sdk;
 
-namespace Xunit.Sdk
+namespace XunitShould.Sdk
 {
     public class XunitException : AssertException
     {

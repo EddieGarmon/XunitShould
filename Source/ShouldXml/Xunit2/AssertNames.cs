@@ -1,6 +1,5 @@
 using System.Xml.Linq;
-
-using Xunit.Sdk;
+using XunitShould.Sdk;
 
 namespace XunitShould
 {

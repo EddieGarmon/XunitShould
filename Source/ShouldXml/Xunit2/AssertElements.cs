@@ -2,9 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
-
-using Xunit.Sdk;
-
 using XunitShould.Sdk;
 
 namespace XunitShould
@@ -60,9 +57,8 @@ namespace XunitShould
                     actualItem.ShouldEqual(expectedItem);
                 }
                 catch (Exception ex) {
-                    throw new AggregateException(
-                        new EnumerableEqualException(expectedItem, actualItem, index, expectedList.Count, actualList.Count),
-                        ex).Flatten();
+                    throw new AggregateException(new EnumerableEqualException(expectedItem, actualItem, index, expectedList.Count, actualList.Count), ex)
+                        .Flatten();
                 }
             }
             if (index != expectedList.Count) {

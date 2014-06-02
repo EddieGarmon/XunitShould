@@ -1,6 +1,5 @@
 ﻿using System;
-
-using Xunit.Sdk;
+using XunitShould.Sdk;
 
 namespace XunitShould
 {

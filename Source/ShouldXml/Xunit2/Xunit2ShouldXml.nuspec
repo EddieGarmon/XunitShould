@@ -11,14 +11,14 @@
     <iconUrl>http://eddiegarmon.github.io/MyLogo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Should assertion extensions for the XUnit v2 framework</description>
-    <copyright>Copyright © Eddie Garmon 2011-2013</copyright>
+    <copyright>Copyright © Eddie Garmon 2011-2014</copyright>
     <tags>should xunit xunit2 xml</tags>
     <dependencies>
-      <dependency id="xunit" version="[2.0-a,3)" />
+      <dependency id="xunit.core" version="[2.0-b,3)" />
     </dependencies>
   </metadata>
   <files>
-    <file src="bin\Release\Xunit2ShouldXml.dll" target="lib\net45" />
-    <file src="bin\Release\Xunit2ShouldXml.pdb" target="lib\net45" />
+    <file src="bin\Release\Xunit2ShouldXml.dll" target="lib\portable-net45+win+wpa81+wp80" />
+    <file src="bin\Release\Xunit2ShouldXml.pdb" target="lib\portable-net45+win+wpa81+wp80" />
   </files>
 </package>

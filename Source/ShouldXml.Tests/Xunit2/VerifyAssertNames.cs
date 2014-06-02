@@ -1,8 +1,6 @@
-﻿using System;
-using System.Xml.Linq;
-
+﻿using System.Xml.Linq;
 using Xunit;
-using Xunit.Sdk;
+using XunitShould.Sdk;
 
 namespace XunitShould
 {
@@ -27,16 +25,16 @@ namespace XunitShould
         public void MismatchedLocalNameThrows() {
             XName expected = XName.Get("{world}HiThere");
             XName actual = XName.Get("{world}Hello");
-            Action testCode = () => actual.ShouldEqual(expected);
-            testCode.ShouldThrow(new EqualException(expected, actual));
+            Record.Exception(() => actual.ShouldEqual(expected))
+                  .ShouldEqual(new EqualException(expected, actual));
         }
 
         [Fact]
         public void MismatchedNamespacesThrows() {
             XName expected = XName.Get("Hello");
             XName actual = XName.Get("{world}Hello");
-            Action testCode = () => actual.ShouldEqual(expected);
-            testCode.ShouldThrow(new EqualException(expected, actual));
+            Record.Exception(() => actual.ShouldEqual(expected))
+                  .ShouldEqual(new EqualException(expected, actual));
         }
     }
 }

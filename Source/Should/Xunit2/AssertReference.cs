@@ -1,5 +1,4 @@
-﻿using Xunit;
-using Xunit.Sdk;
+﻿using XunitShould.Sdk;
 
 namespace XunitShould
 {
@@ -11,7 +10,9 @@ namespace XunitShould
         /// <param name="object">The object to be inspected</param>
         /// <exception cref="NullException">Thrown when the object reference is not null</exception>
         public static void ShouldBeNull(this object @object) {
-            Assert.Null(@object);
+            if (@object != null) {
+                throw new NullException(@object);
+            }
         }
 
         /// <summary>
@@ -21,7 +22,9 @@ namespace XunitShould
         /// <param name="expected">The expected object instance</param>
         /// <exception cref="SameException">Thrown when the objects are not the same instance</exception>
         public static void ShouldBeSameAs(this object actual, object expected) {
-            Assert.Same(expected, actual);
+            if (!ReferenceEquals(expected, actual)) {
+                throw new SameException(expected, actual);
+            }
         }
 
         /// <summary>
@@ -30,7 +33,9 @@ namespace XunitShould
         /// <param name="object">The object to be validated</param>
         /// <exception cref="NotNullException">Thrown when the object is not null</exception>
         public static void ShouldNotBeNull(this object @object) {
-            Assert.NotNull(@object);
+            if (@object == null) {
+                throw new NotNullException();
+            }
         }
 
         /// <summary>
@@ -40,7 +45,9 @@ namespace XunitShould
         /// <param name="expected">The expected object instance</param>
         /// <exception cref="NotSameException">Thrown when the objects are the same instance</exception>
         public static void ShouldNotBeSameAs(this object actual, object expected) {
-            Assert.NotSame(expected, actual);
+            if (ReferenceEquals(expected, actual)) {
+                throw new NotSameException();
+            }
         }
     }
 }

@@ -2,9 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
-
-using Xunit.Sdk;
-
 using XunitShould.Sdk;
 
 namespace XunitShould

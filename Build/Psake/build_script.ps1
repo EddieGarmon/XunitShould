@@ -8,7 +8,6 @@ Properties {
 	$script:xunit = $psake.build_script_dir + "\..\XUnit\xunit.console.exe"
 	$script:xunit_x86 = $psake.build_script_dir + "\..\XUnit\xunit.console.x86.exe"
 	$script:test_x86 = (!($(gwmi win32_processor | select description) -match "x86"))
-	$script:xunit2 = $psake.build_script_dir + "\..\XUnit2\xunit.console.exe"
 	$script:packageStage = $psake.build_script_dir + '\..\Artifacts\Stage'
 	$script:newPackagesPath = $psake.build_script_dir + '\..\Artifacts\Packages'
 }
@@ -67,18 +66,13 @@ Task Test -depends Build {
 		Where-Object { (!$_.PsIsContainer) } |
 		Where-Object { ($_.FullName -like "*\bin\Release\*.Tests.dll") } | 
 		ForEach-Object { 
-			Write-Host "Test v1 " $_.FullName
-			Exec { & $xunit $_.FullName /silent }
+			Write-Host "Testing in v2 runner:" $_.FullName
+			Exec { & $xunit $_.FullName -silent }
+			Write-Host ""
 			if ($test_x86) {
-				Exec { & $xunit_x86 $_.FullName /silent }
+				Exec { & $xunit_x86 $_.FullName -silent }
+				Write-Host ""
 			}
-		}
-	Get-ChildItem ($sourcePath) -Recurse | 
-		Where-Object { (!$_.PsIsContainer) } |
-		Where-Object { ($_.FullName -like "*\bin\Release\*.Tests2.dll") } | 
-		ForEach-Object { 
-			Write-Host "Test v2 " $_.FullName
-			Exec { & $xunit2 $_.FullName -silent }
 		}
 }
 

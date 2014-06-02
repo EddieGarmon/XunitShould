@@ -39,8 +39,14 @@
     <Compile Include="..\Xunit2\VerifyAssertEquality.cs">
       <Link>VerifyAssertEquality.cs</Link>
     </Compile>
+    <Compile Include="..\Xunit2\VerifyAssertFalse.cs">
+      <Link>VerifyAssertFalse.cs</Link>
+    </Compile>
     <Compile Include="..\Xunit2\VerifyAssertRange.cs">
       <Link>VerifyAssertRange.cs</Link>
+    </Compile>
+    <Compile Include="..\Xunit2\VerifyRecord.cs">
+      <Link>VerifyRecord.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

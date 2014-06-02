@@ -31,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -39,38 +40,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Xunit2\AssertContainment.cs">
-      <Link>AssertContainment.cs</Link>
-    </Compile>
-    <Compile Include="..\Xunit2\AssertEmpty.cs">
-      <Link>AssertEmpty.cs</Link>
-    </Compile>
-    <Compile Include="..\Xunit2\AssertEquality.cs">
-      <Link>AssertEquality.cs</Link>
-    </Compile>
-    <Compile Include="..\Xunit2\AssertFalse.cs">
-      <Link>AssertFalse.cs</Link>
+    <Compile Include="..\Xunit2\AssertException.cs">
+      <Link>AssertException.cs</Link>
     </Compile>
     <Compile Include="..\Xunit2\AssertRange.cs">
       <Link>AssertRange.cs</Link>
     </Compile>
-    <Compile Include="..\Xunit2\AssertReference.cs">
-      <Link>AssertReference.cs</Link>
-    </Compile>
-    <Compile Include="..\Xunit2\AssertThrows.cs">
-      <Link>AssertThrows.cs</Link>
-    </Compile>
-    <Compile Include="..\Xunit2\AssertTrue.cs">
-      <Link>AssertTrue.cs</Link>
-    </Compile>
-    <Compile Include="..\Xunit2\AssertType.cs">
-      <Link>AssertType.cs</Link>
-    </Compile>
     <Compile Include="..\Xunit2\Sdk\EnumerableEqualException.cs">
       <Link>Sdk\EnumerableEqualException.cs</Link>
-    </Compile>
-    <Compile Include="..\Xunit2\Sdk\ExceptionComparer.cs">
-      <Link>Sdk\ExceptionComparer.cs</Link>
     </Compile>
     <Compile Include="..\Xunit2\Sdk\InRangeException.cs">
       <Link>Sdk\InRangeException.cs</Link>
@@ -78,18 +55,24 @@
     <Compile Include="..\Xunit2\Sdk\NotInRangeException.cs">
       <Link>Sdk\NotInRangeException.cs</Link>
     </Compile>
-    <Compile Include="..\Xunit2\Sdk\RangeException.cs">
-      <Link>Sdk\RangeException.cs</Link>
-    </Compile>
-    <Compile Include="..\Xunit2\StringComparisonExtensions.cs">
-      <Link>StringComparisonExtensions.cs</Link>
-    </Compile>
+    <Compile Include="AssertEnumerable.cs" />
+    <Compile Include="AssertEquality.cs" />
+    <Compile Include="AssertFalse.cs" />
+    <Compile Include="AssertReferences.cs" />
+    <Compile Include="AssertString.cs" />
+    <Compile Include="AssertThrows.cs" />
+    <Compile Include="AssertTrue.cs" />
+    <Compile Include="AssertType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Record.cs" />
+    <Compile Include="Sdk\EqualException.cs" />
+    <Compile Include="Sdk\StringComparisonExtensions.cs" />
     <Compile Include="Sdk\XunitException.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <Import Project="..\Shared\Shared.projitems" Label="Shared" Condition="Exists('..\Shared\Shared.projitems')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
