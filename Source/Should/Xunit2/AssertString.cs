@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 using XunitShould.Sdk;
 
@@ -18,6 +20,14 @@ namespace XunitShould
             }
         }
 
+        public static void ShouldEqual(this IEnumerable<char> actual, string expected) {
+            ShouldEqual(new string(actual.ToArray()), expected);
+        }
+
+        public static void ShouldEqual(this string actual, string expected) {
+            ShouldEqual(actual, expected, StringComparer.Ordinal);
+        }
+
         public static void ShouldEqual(this string actual, string expected, StringComparison comparisonType) {
             if (actual == null && expected == null) {
                 return;
@@ -30,7 +40,7 @@ namespace XunitShould
 
         public static void ShouldEqual(this string actual,
                                        string expected,
-                                       bool ignoreCase = false,
+                                       bool ignoreCase,
                                        bool ignoreLineEndingDifferences = false,
                                        bool ignoreWhiteSpaceDifferences = false) {
             // Start out assuming that one of the values is null
