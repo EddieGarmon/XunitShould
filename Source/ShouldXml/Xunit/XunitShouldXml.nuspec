@@ -12,7 +12,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Should assertion extensions for the XUnit v1 framework</description>
     <copyright>Copyright © Eddie Garmon 2011-2014</copyright>
-    <tags>should xunit xml</tags>
+    <tags>xunit xml should assertions testing</tags>
     <dependencies>
       <dependency id="xunit" version="[1.9.2,2)" />
     </dependencies>
