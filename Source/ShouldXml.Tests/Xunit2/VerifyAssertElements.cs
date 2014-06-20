@@ -11,7 +11,7 @@ namespace XunitShould
             var actualElement = new XElement("Simple", actualAttribute);
             var expectedAttribute = new XAttribute("Test2", "Fail");
             var expectedElement = new XElement("Simple", expectedAttribute);
-            var thrown = Record.Exception(() => actualElement.ShouldEqual(expectedElement));
+            var thrown = Trap.Exception(() => actualElement.ShouldEqual(expectedElement));
             //var inner = thrown.InnerExceptions.ToList();
             //inner.Count.ShouldEqual(2);
             //inner[0].Message.ShouldEqual(new EqualException(expectedElement, actualElement).Message);

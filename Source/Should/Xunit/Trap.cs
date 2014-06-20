@@ -1,13 +1,12 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
-using System.Threading.Tasks;
 
 namespace XunitShould
 {
     /// <summary>
     /// Allows the user to record actions for a test.
     /// </summary>
-    public static class Record
+    public static class Trap
     {
         /// <summary>
         /// Records any exception which is thrown by the given code.
@@ -42,22 +41,7 @@ namespace XunitShould
             }
 
             try {
-                var task = testCode() as Task;
-                //if we were passes a task, we must wait on it...
-                if (task != null) {
-                    return AwaitTask(task)
-                        .Result;
-                }
-                return null;
-            }
-            catch (Exception ex) {
-                return ex;
-            }
-        }
-
-        private static async Task<Exception> AwaitTask(Task task) {
-            try {
-                await task;
+                testCode();
                 return null;
             }
             catch (Exception ex) {

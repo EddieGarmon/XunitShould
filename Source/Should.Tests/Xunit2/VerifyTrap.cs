@@ -3,18 +3,18 @@ using Xunit;
 
 namespace XunitShould
 {
-    public partial class VerifyRecord
+    public partial class VerifyTrap
     {
         [Fact]
         public void WithException() {
-            Exception exception = Record.Exception(() => { throw new Exception("11235831459"); });
+            Exception exception = Trap.Exception(() => { throw new Exception("11235831459"); });
             exception.ShouldNotBeNull();
             exception.Message.ShouldEqual("11235831459");
         }
 
         [Fact]
         public void WithoutException() {
-            Exception exception = Record.Exception(() => { });
+            Exception exception = Trap.Exception(() => { });
             exception.ShouldBeNull();
         }
     }

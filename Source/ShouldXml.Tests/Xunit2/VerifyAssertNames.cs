@@ -25,16 +25,16 @@ namespace XunitShould
         public void MismatchedLocalNameThrows() {
             XName expected = XName.Get("{world}HiThere");
             XName actual = XName.Get("{world}Hello");
-            Record.Exception(() => actual.ShouldEqual(expected))
-                  .ShouldEqual(new EqualException(expected, actual));
+            Trap.Exception(() => actual.ShouldEqual(expected))
+                .ShouldEqual(new EqualException(expected, actual));
         }
 
         [Fact]
         public void MismatchedNamespacesThrows() {
             XName expected = XName.Get("Hello");
             XName actual = XName.Get("{world}Hello");
-            Record.Exception(() => actual.ShouldEqual(expected))
-                  .ShouldEqual(new EqualException(expected, actual));
+            Trap.Exception(() => actual.ShouldEqual(expected))
+                .ShouldEqual(new EqualException(expected, actual));
         }
     }
 }

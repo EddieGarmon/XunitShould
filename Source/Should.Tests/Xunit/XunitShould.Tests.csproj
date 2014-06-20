@@ -45,8 +45,8 @@
     <Compile Include="..\Xunit2\VerifyAssertRange.cs">
       <Link>VerifyAssertRange.cs</Link>
     </Compile>
-    <Compile Include="..\Xunit2\VerifyRecord.cs">
-      <Link>VerifyRecord.cs</Link>
+    <Compile Include="..\Xunit2\VerifyTrap.cs">
+      <Link>VerifyTrap.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

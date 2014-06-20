@@ -10,8 +10,8 @@ namespace XunitShould
         public void InRange() {
             10.ShouldBeInRange(5, 15);
 
-            Record.Exception(() => 10.ShouldBeInRange(15, 20))
-                  .ShouldEqual(new InRangeException(10, 15, true, 20, true));
+            Trap.Exception(() => 10.ShouldBeInRange(15, 20))
+                .ShouldEqual(new InRangeException(10, 15, true, 20, true));
         }
 
         [Fact]
@@ -19,8 +19,8 @@ namespace XunitShould
             var comparer = Comparer<int>.Default;
             10.ShouldBeInRange(5, 15, comparer);
 
-            Record.Exception(() => 10.ShouldBeInRange(15, 20, comparer))
-                  .ShouldEqual(new InRangeException(10, 15, true, 20, true));
+            Trap.Exception(() => 10.ShouldBeInRange(15, 20, comparer))
+                .ShouldEqual(new InRangeException(10, 15, true, 20, true));
         }
 
         [Fact]
@@ -31,8 +31,8 @@ namespace XunitShould
             10.ShouldNotBeInRange(15, false, 20, false);
             25.ShouldNotBeInRange(15, 20);
 
-            Record.Exception(() => 15.ShouldNotBeInRange(10, 20))
-                  .ShouldEqual(new NotInRangeException(15, 10, true, 20, true));
+            Trap.Exception(() => 15.ShouldNotBeInRange(10, 20))
+                .ShouldEqual(new NotInRangeException(15, 10, true, 20, true));
         }
 
         [Fact]
@@ -41,8 +41,8 @@ namespace XunitShould
             10.ShouldNotBeInRange(15, 20, comparer);
             25.ShouldNotBeInRange(15, 20, comparer);
 
-            Record.Exception(() => 15.ShouldNotBeInRange(10, 20, comparer))
-                  .ShouldEqual(new NotInRangeException(15, 10, true, 20, true));
+            Trap.Exception(() => 15.ShouldNotBeInRange(10, 20, comparer))
+                .ShouldEqual(new NotInRangeException(15, 10, true, 20, true));
         }
     }
 }

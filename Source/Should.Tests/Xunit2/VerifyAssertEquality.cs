@@ -23,22 +23,22 @@ namespace XunitShould
         [Fact]
         public void MiddleNotEqual() {
             var items = new List<string> { "1", "2", "3" };
-            Record.Exception(() => items.ShouldEnumerateEqual("1", "3", "5"))
-                  .ShouldEqual(new EnumerableEqualException("3", "2", 1, 3, 3));
+            Trap.Exception(() => items.ShouldEnumerateEqual("1", "3", "5"))
+                .ShouldEqual(new EnumerableEqualException("3", "2", 1, 3, 3));
         }
 
         [Fact]
         public void MoreInActual() {
             var items = new List<string> { "1", "2", "3", "4", "5" };
-            Record.Exception(() => items.ShouldEnumerateEqual("1", "2", "3", "4"))
-                  .ShouldEqual(new EnumerableEqualException(null, "5", 4, 4, 5));
+            Trap.Exception(() => items.ShouldEnumerateEqual("1", "2", "3", "4"))
+                .ShouldEqual(new EnumerableEqualException(null, "5", 4, 4, 5));
         }
 
         [Fact]
         public void MoreInExpected() {
             var items = new List<string> { "1", "2", "3", "4" };
-            Record.Exception(() => items.ShouldEnumerateEqual("1", "2", "3", "4", "5"))
-                  .ShouldEqual(new EnumerableEqualException("5", null, 4, 5, 4));
+            Trap.Exception(() => items.ShouldEnumerateEqual("1", "2", "3", "4", "5"))
+                .ShouldEqual(new EnumerableEqualException("5", null, 4, 5, 4));
         }
 
         [Fact]

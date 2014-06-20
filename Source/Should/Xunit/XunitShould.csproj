@@ -64,7 +64,7 @@
     <Compile Include="AssertTrue.cs" />
     <Compile Include="AssertType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Record.cs" />
+    <Compile Include="Trap.cs" />
     <Compile Include="Sdk\EqualException.cs" />
     <Compile Include="Sdk\StringComparisonExtensions.cs" />
     <Compile Include="Sdk\XunitException.cs" />

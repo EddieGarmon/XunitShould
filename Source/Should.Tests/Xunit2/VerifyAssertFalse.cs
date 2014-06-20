@@ -11,20 +11,20 @@ namespace XunitShould
 
         [Fact]
         public void WhenTrue_Throws() {
-            Record.Exception(() => true.ShouldBeFalse())
-                  .Message.ShouldEndWith("False() Failure");
+            Trap.Exception(() => true.ShouldBeFalse())
+                .Message.ShouldEndWith("False() Failure");
         }
 
         [Fact]
         public void WhenTrue_ThrowsWithGeneratedMessage() {
-            Record.Exception(() => true.ShouldBeFalse(() => DynamicText))
-                  .ShouldHaveMessage(DynamicText);
+            Trap.Exception(() => true.ShouldBeFalse(() => DynamicText))
+                .ShouldHaveMessage(DynamicText);
         }
 
         [Fact]
         public void WhenTrue_ThrowsWithMessage() {
-            Record.Exception(() => true.ShouldBeFalse("static"))
-                  .ShouldHaveMessage("static");
+            Trap.Exception(() => true.ShouldBeFalse("static"))
+                .ShouldHaveMessage("static");
         }
 
         private const string DynamicText = "dynamic, lol";

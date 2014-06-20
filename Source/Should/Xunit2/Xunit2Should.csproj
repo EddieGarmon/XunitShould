@@ -45,7 +45,7 @@
     <Compile Include="AssertTrue.cs" />
     <Compile Include="AssertType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Record.cs" />
+    <Compile Include="Trap.cs" />
     <Compile Include="Sdk\AssertActualExpectedException.cs" />
     <Compile Include="Sdk\AssertCollectionCountException.cs" />
     <Compile Include="Sdk\AssertComparer.cs" />
