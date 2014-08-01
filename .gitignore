@@ -2,20 +2,38 @@
 [Bb]in
 
 Build/Artifacts/*
-Source/packages/*
-!Source/packages/repositories.config
+Build/PackageDependencies/*
+!Build/PackageDependencies/repositories.config
 
 *.user
 *.suo
 *.cache
 *.nupkg
+*.autosave
 
 ~$*
 *~
 
-*ReSharper*
+*[Rr]e[Ss]harper*
+![Rr]e[Ss]harperSettings
 *.DotSettings.*
 
 _NCrunch*
 *.ncrunchsolution*
 *.ncrunchproject
+
+# Windows Store app package directory
+AppPackages/
+
+# Backup & report files from converting an old project file to a newer
+# Visual Studio version. Backup files are not needed, because we have git ;-)
+_UpgradeReport_Files/
+Backup*/
+UpgradeLog*.XML
+UpgradeLog*.htm
+
+# Windows cruft
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
