@@ -225,3 +225,14 @@ Task ClearVersion {
 }
 
 Task Release -depends Clean, SetVersion, Test, Package, ClearVersion
+
+Task UploadAll {
+	Get-ChildItem ($newPackagesPath) -Recurse | 
+		Where-Object { (!$_.PsIsContainer) } |
+		Where-Object { ($_.Name -like "*.nupkg") } | 
+		ForEach-Object { 
+			$path = $_.FullName
+			Write-Host "Uploading: $id [$fileVersion] from $path"
+			exec { & $nuget push $path -Verbosity detailed -NonInteractive }
+		}
+}
