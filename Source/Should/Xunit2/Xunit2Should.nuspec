@@ -14,7 +14,8 @@
     <copyright>Copyright © Eddie Garmon 2011-2014</copyright>
     <tags>xunit xunit2 should assertions testing</tags>
     <dependencies>
-      <dependency id="xunit.core" version="[2.0-b,3)" />
+      <dependency id="xunit.abstractions" version="[2.0.0,3)" />
+      <dependency id="xunit.core" version="[2.0.0,3)" />
     </dependencies>
   </metadata>
   <files>
