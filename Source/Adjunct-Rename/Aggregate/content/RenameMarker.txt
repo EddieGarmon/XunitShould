@@ -1,1 +1,0 @@
-This file is a NuGet package rename marker, and can be deleted.
